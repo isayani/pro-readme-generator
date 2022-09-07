@@ -62,7 +62,7 @@ const generateREADME = ({title, descr, userStory, accCriteria, tech, futureDev, 
         </footer>
         </body>
         </html>
-            `
+            `;
 
     inquirer
     .prompt([
@@ -117,3 +117,10 @@ const generateREADME = ({title, descr, userStory, accCriteria, tech, futureDev, 
             name: 'repo',
         },
     ])
+    .then ((input) => {
+        const readmeContent = generateREADME(input);
+
+        fs.writeFile('index.html', readmeContent, (err) =>
+            err ? console.log(err) : console.log('Successfully generated README to index.html!')
+        );
+    });
