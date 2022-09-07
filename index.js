@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-const generateREADME = ({title, descr, userStory, accCriteria, tech, futureDev, contr, test, install, deplLink, email, issues, gitUser }) => 
+const generateREADME = ({title, descr, userStory, accCriteria, tech, futureDev, contr, test, install, deplLink, email, issues, user }) => 
         `
         # ${title}
 
@@ -55,7 +55,7 @@ const generateREADME = ({title, descr, userStory, accCriteria, tech, futureDev, 
         ${test}
 
         ## Questions
-        [Find us on GitHub](https://github.com/${gitUser})
+        [Find us on GitHub](https://github.com/${user})
 
         For additional issues:
         ${issues}
