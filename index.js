@@ -101,12 +101,10 @@ const generateREADME = ({title, descr, userStory, accCriteria, tech, futureDev, 
             name: 'install',
         },
         {
-            type: 'confirm',
             message: 'Please enter your GitHub username:',
-            name: 'gitUser',
+            name: 'user',
         },
         {
-            type: 'confirm',
             message: 'Please enter the best email to reach you:',
             name: 'email',
         },
