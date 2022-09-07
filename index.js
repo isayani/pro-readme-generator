@@ -2,69 +2,68 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 const generateREADME = ({title, descr, userStory, accCriteria, tech, futureDev, contr, test, install, deplLink, email, issues, user }) => 
-        `
-        # ${title}
+`# ${title}
 
-        ## Description
+## Description
 
-        ${descr}
+${descr}
 
-        ## Table of Contents
+## Table of Contents
 
-        1. Description
-        2. Table of Contents
-        3. Usage
-        4. Installation
-        5. License
-        6. Technologies Employed
-        7. Future Development
-        8. Contributing
-        9. Tests
-        10. Questions
+1. Description
+2. Table of Contents
+3. Usage
+4. Installation
+5. License
+6. Technologies Employed
+7. Future Development
+8. Contributing
+9. Tests
+10. Questions
 
-        ## Usage
-        ## User Story
+## Usage
+## User Story
 
-        ${userStory}
+${userStory}
 
 
-        ## Acceptance Criteria 
+## Acceptance Criteria 
 
-        ${accCriteria}
+${accCriteria}
 
-        ## Installation
-        ${install}
-        [${title} Live Link](${deplLink})
+## Installation
+${install}
+[${title} Live Link](${deplLink})
 
-        The following images shows the web application's appearance and functionality:
+The following images shows the web application's appearance and functionality:
 
-        *please include mock-up here after README is generated*
+*please include mock-up here after README is generated*
 
-        ## License
+## License
 
-        ## Technologies Employed
-        ${tech}
+## Technologies Employed
+${tech}
 
-        ## Future Development
-        ${futureDev}
+## Future Development
+${futureDev}
 
-        ## Contributing
-        ${contr}
+## Contributing
+${contr}
 
-        ## Tests
-        ${test}
+## Tests
+${test}
 
-        ## Questions
-        [Find us on GitHub](https://github.com/${user})
+## Questions
+[Find us on GitHub](https://github.com/${user})
 
-        For additional issues:
-        ${issues}
+For additional issues:
+${issues}
 
-        or email us at ${email}
+or email us at ${email}
 
-        - - -
-        © 2022 ${title}, Confidential and Proprietary. All Rights Reserved.
-        `;
+- - -
+© 2022 ${title}, Confidential and Proprietary. All Rights Reserved.
+`;
 
     inquirer
     .prompt([
@@ -101,6 +100,11 @@ const generateREADME = ({title, descr, userStory, accCriteria, tech, futureDev, 
             name: 'install',
         },
         {
+            type: 'editor',
+            message: 'Please provide your deployed live link:',
+            name: 'deplLink',
+        },
+        {
             message: 'Please enter your GitHub username:',
             name: 'user',
         },
@@ -109,7 +113,7 @@ const generateREADME = ({title, descr, userStory, accCriteria, tech, futureDev, 
             name: 'email',
         },
         {
-            message: 'Where can users report issues',
+            message: 'Where can users report issues?',
             name: 'issues',
         },
         {
