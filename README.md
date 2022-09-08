@@ -74,7 +74,7 @@ Contributions may be made through GitHub, provided communication is made and the
 There were no testing methods used to build this application.
 
 ## Questions
-[Find us on GitHub](https://github.com/isayani)
+[Find us on GitHub](https://github.com/isayani)<br/>
 [Email us](isayani95@gmail.com)
 
 For additional issues:
