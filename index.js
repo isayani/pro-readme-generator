@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-const generateREADME = ({title, descr, userStory, accCriteria, tech, futureDev, contr, test, install, deplLink, email, issues, user }) => 
+const generateREADME = ({title, descr, userStory, accCriteria, tech, futureDev, contr, test, install, deplLink, email, issues, user, license}) => 
 `# ${title}
 
 ## Description
@@ -10,26 +10,29 @@ ${descr}
 
 ## Table of Contents
 
-1. Description
-2. Table of Contents
-3. Usage
-4. Installation
-5. License
-6. Technologies Employed
-7. Future Development
-8. Contributing
-9. Tests
-10. Questions
+1. [Description](#description)
+2. [Table of Contents](#table-of-contents)
+3. [Usage](#usage)
+4. [Installation](#installation)
+5. [License](#license)
+6. [Technologies Employed](#technologies-employed)
+7. [Future Development](#future-development)
+8. [Contributing](#contributing)
+9. [Tests](#tests)
+10. [Questions](#questions)
 
 ## Usage
-## User Story
+### User Story
 
+\`\`\`md
 ${userStory}
+\`\`\`
 
+### Acceptance Criteria 
 
-## Acceptance Criteria 
-
+\`\`\`md
 ${accCriteria}
+\`\`\`
 
 ## Installation
 ${install}
@@ -40,6 +43,8 @@ The following images shows the web application's appearance and functionality:
 *please include mock-up here after README is generated*
 
 ## License
+${license}
+![GitHub License](https://img.shields.io/badge/license-${license}-blue.svg)
 
 ## Technologies Employed
 ${tech}
@@ -55,11 +60,10 @@ ${test}
 
 ## Questions
 [Find us on GitHub](https://github.com/${user})
+[Email us](${email})
 
 For additional issues:
-${issues}
-
-or email us at ${email}
+${issues} 
 
 - - -
 © 2022 ${title}, Confidential and Proprietary. All Rights Reserved.
@@ -125,6 +129,12 @@ or email us at ${email}
             type: 'editor',
             message: 'Please explain the testing of this application:',
             name: 'test',
+        },
+        {
+            type: 'checkbox',
+            message: 'Please choose your licensing method:',
+            choices: [ "Apache License 2.0", new inquirer.Separator(), "BSD", new inquirer.Separator(), "GNU", new inquirer.Separator(), "MIT", new inquirer.Separator(), "MPL 2.0", new inquirer.Separator(), "Other", new inquirer.Separator(), "None",],
+            name: 'license',
         },
     ])
     .then ((input) => {
