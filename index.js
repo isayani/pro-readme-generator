@@ -9,7 +9,6 @@ const generateREADME = ({title, descr, userStory, accCriteria, tech, futureDev, 
 ${descr}
 
 ## Table of Contents
-
 1. [Description](#description)
 2. [Table of Contents](#table-of-contents)
 3. [Usage](#usage)
@@ -36,26 +35,27 @@ ${accCriteria}
 
 ## Installation
 ${install}
-[${title} Live Link](${deplLink})
+${deplLink.length > 0 ? '[${title} Live Link](${deplLink})' : ""}
 
-The following images shows the web application's appearance and functionality:
+The following shows the web application's appearance and functionality:
 
 *please include mock-up here after README is generated*
 
 ## License
-${license}
+${license}<br/>
 ![GitHub License](https://img.shields.io/badge/license-${license}-blue.svg)
 
-## Technologies Employed
+${tech.length > 0 ? '## Technologies Employed' : ""}
 ${tech}
 
-## Future Development
+${futureDev.length > 0 ? '## Future Development' : ""}
+
 ${futureDev}
 
 ## Contributing
 ${contr}
 
-## Tests
+${test.length > 0 ? '## Tests' : ""}
 ${test}
 
 ## Questions
@@ -66,7 +66,7 @@ For additional issues:
 ${issues} 
 
 - - -
-© 2022 ${title}, Confidential and Proprietary. All Rights Reserved.
+© 2022 ${title} by ${user}, Confidential and Proprietary. All Rights Reserved.
 `;
 
     inquirer
@@ -121,19 +121,18 @@ ${issues}
             name: 'issues',
         },
         {
-            type: 'editor',
             message: 'Please explain where contributions can be made:',
             name: 'contr',
         },
         {
             type: 'editor',
-            message: 'Please explain the testing of this application:',
+            message: 'Please list the testing methods of this application:',
             name: 'test',
         },
         {
             type: 'checkbox',
             message: 'Please choose your licensing method:',
-            choices: [ "Apache License 2.0", new inquirer.Separator(), "BSD", new inquirer.Separator(), "GNU", new inquirer.Separator(), "MIT", new inquirer.Separator(), "MPL 2.0", new inquirer.Separator(), "Other", new inquirer.Separator(), "None",],
+            choices: [  "BSD", new inquirer.Separator(), "GNU", new inquirer.Separator(), "MIT", new inquirer.Separator(), "Other", new inquirer.Separator(), "None",],
             name: 'license',
         },
     ])
