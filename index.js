@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 const generateREADME = ({title, descr, userStory, accCriteria, tech, futureDev, contr, test, install, deplLink, email, issues, user, license}) => 
-`# ${title}
+`# ${title} ![GitHub License](https://img.shields.io/badge/license-${license}-blue.svg)
 
 ## Description
 
@@ -42,8 +42,8 @@ The following shows the web application's appearance and functionality:
 *please include mock-up here after README is generated*
 
 ## License
-${license}<br/>
-![GitHub License](https://img.shields.io/badge/license-${license}-blue.svg)
+This application is covered under ${license} license.
+
 
 ${tech.length > 0 ? '## Technologies Employed' : ""}
 ${tech}
@@ -132,7 +132,7 @@ ${issues}
         {
             type: 'checkbox',
             message: 'Please choose your licensing method:',
-            choices: [  "BSD", new inquirer.Separator(), "GNU", new inquirer.Separator(), "MIT", new inquirer.Separator(), "Other", new inquirer.Separator(), "None",],
+            choices: [  "BSD", new inquirer.Separator(), "GNU", new inquirer.Separator(), "MIT", new inquirer.Separator(), "Other", new inquirer.Separator(), "No",],
             name: 'license',
         },
     ])
